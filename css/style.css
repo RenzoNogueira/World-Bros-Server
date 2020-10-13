@@ -1,6 +1,6 @@
 body {
     font-family: serif, emoji, sans-serif !important;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .bg-sky {
