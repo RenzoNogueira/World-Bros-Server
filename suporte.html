@@ -39,24 +39,28 @@
                     <form>
                         <div class="row">
                             <div class="form-group col">
-                                <label for="exampleInputEmail1">Endereço de E-mail</label>
-                                <input type="email" class="form-control" id="enailUser" required>
+                                <label for="nameUser">Nick name</label>
+                                <input v-model="dadosMensagemSuporte.nick" type="text" class="form-control"
+                                    id="nameUser" required>
                             </div>
                             <div class="form-group col">
-                                <label for="exampleInputPassword1">Nick name</label>
-                                <input type="text" class="form-control" id="nameUser" required>
+                                <label for="assunto">Assunto da mensagem</label>
+                                <input v-model="dadosMensagemSuporte.assunto" type="text" class="form-control"
+                                    id="assunto" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Mensagem</label>
-                            <textarea class="form-control" id="mensageUser" rows="3"
-                                required></textarea>
+                            <label for="mensageUser">Mensagem</label>
+                            <textarea v-model="dadosMensagemSuporte.mensagem" class="form-control" id="mensageUser"
+                                rows="3" required></textarea>
                         </div>
                         <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                            <input v-model="dadosMensagemSuporte.authentication" type="checkbox"
+                                class="form-check-input" id="exampleCheck1" required>
                             <label class="form-check-label" for="exampleCheck1">Marque aqui para proseguir</label>
                         </div>
-                        <a type="submit" class="btn btn-primary">Enviar</a>
+                        <button v-bind:disabled="dadosMensagemSuporte.botaoEnviarSupote" v-on:click="submitToSuporte"
+                            class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
 

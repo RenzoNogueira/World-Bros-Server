@@ -113,14 +113,14 @@ particlesJS({
 // MEUS TEMPLATES
 
 // Componentes
-Vue.component('menuLateral', {
+Vue.component("menuLateral", {
     data: function () {
         return {
             linksMenuLateral: {
-                loja: '#',
-                suporte: 'suporte.html',
-                galeria: '#',
-                fazerDoacao: 'https://server.pro/server/15745071'
+                loja: "#",
+                suporte: "suporte.html",
+                galeria: "#",
+                fazerDoacao: "https://server.pro/server/15745071"
             }
         }
     },
@@ -177,24 +177,53 @@ Vue.component('menuLateral', {
 // INCLUSÃO VUE JS
 
 var app = new Vue({
-    el: '#app',
+    el: "#app",
     data: {
-        // Variáveis
+        // VARIÁVEIS
 
-        // Dados servidor
+        dadosMensagemSuporte: {
+            nick: "",
+            assunto: "",
+            mensagem: "",
+            authentication: false,
+            botaoEnviarSupote: true
+        },
+
+        // DADOS SERVIDOR
+
         servidor: {
-            enderecoServidor: 'worldbros.serv.gs',
+            enderecoServidor: "worldbros.serv.gs",
             portaServidor: 40670
         },
 
         contatos: {
-            emailServidor: 'world.bros@gmail.com',
-            emailDesenvolvedor: 'nogueirarenzoso@gmail.com',
-            enderecoDiscord: 'discord.gg/kTmJGC'
+            emailServidor: "world.bros@gmail.com",
+            emailDesenvolvedor: "nogueirarenzoso@gmail.com",
+            enderecoDiscord: "discord.gg/kTmJGC"
         },
         regrasServidor: [
-            'Não use progamas de terceiros para ter vantagens no jogo, isso não é legal.',
-            'Evite usar palavrões no chat global, é feio.'
+            "Não use progamas de terceiros para ter vantagens no jogo, isso não é legal.",
+            "Evite usar palavrões no chat global, é feio."
         ],
+    },
+
+    methods: {
+        submitToSuporte() {
+            window.open("mailto:" + this.contatos.emailServidor + 
+            "?subject=" + this.dadosMensagemSuporte.assunto + "&&body=My Nick is:" + 
+            this.dadosMensagemSuporte.nick + ". " +
+            this.dadosMensagemSuporte.mensagem, "_blank");
+        }
+    },
+
+    updated: function () {
+        if (this.dadosMensagemSuporte.nick.length > 0 &&
+            this.dadosMensagemSuporte.assunto.length > 0 &&
+            this.dadosMensagemSuporte.mensagem.length > 0 &&
+            this.dadosMensagemSuporte.authentication === true) {
+            this.dadosMensagemSuporte.botaoEnviarSupote = null
+        } else {
+            this.dadosMensagemSuporte.botaoEnviarSupote = true
+        }
     }
 })
