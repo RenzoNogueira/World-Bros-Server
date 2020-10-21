@@ -1,5 +1,3 @@
-
-
 // MEUS TEMPLATES
 
 // Componentes
@@ -10,7 +8,7 @@ Vue.component("menuLateral", {
                 home: "index.html",
                 loja: "#",
                 suporte: "suporte.html",
-                galeria: "#",
+                galeria: "galeria.html",
                 fazerDoacao: "https://server.pro/server/15745071"
             }
         }
@@ -70,6 +68,26 @@ Vue.component("menuLateral", {
     `
 })
 
+Vue.component("galeria", {
+    data: function () {
+        return {
+            localizacaoImagens: []
+        }
+    },
+
+    beforeMount: function () {
+        // CARREGA IMAGENS DA GALERIA
+        fetch("/db/img.json").then(resp => resp.json()).then(data => console.log(data))
+    },
+
+    template: `
+    <h3>Galeria</h3>
+    <div>
+        
+    <div/>
+    `
+})
+
 // INCLUSÃO VUE JS
 
 var app = new Vue({
@@ -105,10 +123,10 @@ var app = new Vue({
 
     methods: {
         submitToSuporte() {
-            window.open("mailto:" + this.contatos.emailServidor + 
-            "?subject=" + this.dadosMensagemSuporte.assunto + "&&body=My Nick is:" + 
-            this.dadosMensagemSuporte.nick + ". " +
-            this.dadosMensagemSuporte.mensagem, "_blank");
+            window.open("mailto:" + this.contatos.emailServidor +
+                "?subject=" + this.dadosMensagemSuporte.assunto + "&&body=My Nick is:" +
+                this.dadosMensagemSuporte.nick + ". " +
+                this.dadosMensagemSuporte.mensagem, "_blank");
         }
     },
 

@@ -1,0 +1,19 @@
+{
+  "name": "world-bros-server",
+  "version": "1.0.0",
+  "description": "World Bros Server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenzoNogueira/World-Bros-Server.git"
+  },
+  "author": "Renzo Nogueira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenzoNogueira/World-Bros-Server/issues"
+  },
+  "homepage": "https://github.com/RenzoNogueira/World-Bros-Server#readme"
+}

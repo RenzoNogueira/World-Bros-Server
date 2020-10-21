@@ -1,0 +1,14 @@
+[
+    {
+        "dataPublicacao": "21/10/2020",
+        "titulo": "Eu sou um titulo",
+        "descricao": "Eu sou uma descricao",
+        "localizacaoArquivo": "img/galeria/teste1.jpg"
+    },
+    {
+        "dataPublicacao": "21/10/2020",
+        "titulo": "Eu sou um titulo",
+        "descricao": "Eu sou uma descricao",
+        "localizacaoArquivo": "img/galeria/teste2.jpg"
+    }
+]
